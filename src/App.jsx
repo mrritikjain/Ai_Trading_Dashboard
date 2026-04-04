@@ -1,7 +1,15 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard";
 
 const App = () => {
-  return <div className="text-3xl font-bold underline">App Started</div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
