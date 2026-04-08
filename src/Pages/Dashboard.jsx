@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div className="h-screen bg-[#0B0E14] flex flex-col font-sans overflow-hidden">
       <Topbar />
-      <div className="flex h-[calc(100vh-80px)] w-full">
+      <div className="flex h-[calc(100vh-64px)] w-full">
         <div className="basis-1/6 bg-[#131722] border-r border-[#1E222D] overflow-y-auto shadow-[4px_0_24px_rgba(0,0,0,0.2)] z-10">
           <SideBar />
         </div>
