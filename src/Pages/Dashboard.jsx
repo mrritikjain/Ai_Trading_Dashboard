@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Topbar from "../Components/Topbar";
 import SideBar from "../Components/Sidebar";
 import Main from "../Components/Main";
 
 const Dashboard = () => {
-  return (
+  const [selectedAsset, setSelectedAsset] = useState("BTC/USD");
+  const [aiResult, setAiResult] = useState({
+    sentiment: "Neutral",
+    suggestion: "Hold",
+    risk: "Medium",
+    analysisText: "",
+  });
+  const [metrics, setMetrics] = useState({
+    price: 0,
+    change: 0,
+    volume: 0,
+  });
+  const [loading, setLoading] = useState(false);
+
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="h-screen bg-[#0B0E14] flex flex-col font-sans overflow-hidden">
       <Topbar />
       <div className="flex h-[calc(100vh-64px)] w-full">
@@ -13,7 +29,11 @@ const Dashboard = () => {
         </div>
 
         <div className="basis-5/6  overflow-y-auto">
-          <Main />
+          <Main
+            aiResult={aiResult}
+            metrics={metrics}
+            selectedAsset={selectedAsset}
+          />
         </div>
       </div>
     </div>

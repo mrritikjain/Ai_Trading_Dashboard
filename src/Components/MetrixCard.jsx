@@ -1,6 +1,6 @@
 import React from "react";
 
-const MetrixCard = () => {
+const MetrixCard = ({ metrics }) => {
   return (
     <div className="flex w-full items-center justify-around py-2">
       {/* Price */}
@@ -10,7 +10,7 @@ const MetrixCard = () => {
           <span>Price</span>
         </div>
         <div className="text-white text-3xl font-bold tracking-wide">
-          $46,550
+          {`$${metrics.price}`}
         </div>
       </div>
 
@@ -21,7 +21,7 @@ const MetrixCard = () => {
           <span>24h Change</span>
         </div>
         <div className="text-[#0ECB81] text-3xl font-bold tracking-wide">
-          +3.2%
+          {`${metrics.change >= 0 ? "+" : ""}${metrics.change}%`}
         </div>
       </div>
 
@@ -32,7 +32,7 @@ const MetrixCard = () => {
           <span>Volume</span>
         </div>
         <div className="text-white text-3xl font-bold tracking-wide">
-          $16.5B
+          {`$${metrics.volume}`}
         </div>
       </div>
     </div>
